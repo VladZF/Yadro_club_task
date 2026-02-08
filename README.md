@@ -1,16 +1,17 @@
 # Симулятор компьютерного клуба
 
-## Сборка приложения
+## Сборка приложения (MinGW)
 
 ```bash
 mkdir build
 cd build
 cmake -S .. -G "MinGW Makefiles"
-cmake build .
+cmake --build .
 ```
 
 ## Запуск
 
 ```bash
-.\task.exe \path\to\inputfile
+Linux -> ./Yadro_test_task /path/to/inputfile
+Windows -> .\Yadro_test_task.exe \path\to\inputfile 
 ```
