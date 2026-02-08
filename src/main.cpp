@@ -24,10 +24,16 @@ int main(int argc, char* argv[]) {
         ClubConfig config = parser.parseConfig();
         Club club(config, outputStream);
 
+        std::vector<Event> events;
+
+        while (auto eventOpt = parser.nextEvent(config)) {
+            Event event = *eventOpt;
+            events.push_back(event);
+        }
+
         outputStream << config.openTime << std::endl;
 
-        while (auto eventOpt = parser.nextEvent()) {
-            Event event = *eventOpt;
+        for (auto event : events) {
             outputStream << event.originalLine << std::endl;
             club.processEvent(event);
         }
